@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+
+/* ── PROFILE SECTION ────────────────────────────── */
+.profile-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(3rem, 8vw, 6.25rem) clamp(2rem, 5vw, 4rem);
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition: all 0.8s ease;
+}
+
+.profile-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SECTION HEADER ─────────────────────────────── */
+.section-header {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* ── GLITCH TITLE (기존 유지) ────────────────────── */
+.glitch-title {
+  position: relative;
+  display: inline-block;
+  color: #00ff46;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  line-height: 1.05;
+  animation: glitchMain 3s infinite;
+  text-shadow:
+    0 0 8px rgba(0, 255, 70, 0.9),
+    0 0 20px rgba(0, 255, 70, 0.5),
+    0 0 40px rgba(0, 255, 70, 0.25);
+}
+
+.glitch-title::before,
+.glitch-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-title::before {
+  color: #00ffff;
+  animation: glitchCyan 3s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch-title::after {
+  color: #ff003c;
+  animation: glitchRed 3s infinite;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchMain {
+  0%, 75%, 100% { transform: translate(0); }
+  76% { transform: translateX(-0.5rem); }
+  78% { transform: translateX(0.375rem); }
+  80% { transform: translateX(-0.25rem); }
+  82% { transform: translateX(0.5rem); }
+  84% { transform: translateX(-0.375rem); }
+  86% { transform: translateX(0.1875rem); }
+  88% { transform: translate(0); }
+}
+
+@keyframes glitchCyan {
+  0%, 75%, 100% { transform: translateX(0); opacity: 0; }
+  76% { transform: translateX(-0.75rem); opacity: 1; }
+  78% { transform: translateX(0.625rem); opacity: 0.9; }
+  80% { transform: translateX(-0.5rem); opacity: 1; }
+  82% { transform: translateX(0.75rem); opacity: 0.8; }
+  84% { transform: translateX(-0.625rem); opacity: 1; }
+  86% { transform: translateX(0.375rem); opacity: 0.9; }
+  88% { transform: translateX(0); opacity: 0; }
+}
+
+@keyframes glitchRed {
+  0%, 75%, 100% { transform: translateX(0); opacity: 0; }
+  77% { transform: translateX(0.625rem); opacity: 1; }
+  79% { transform: translateX(-0.75rem); opacity: 0.9; }
+  81% { transform: translateX(0.5rem); opacity: 1; }
+  83% { transform: translateX(-0.625rem); opacity: 0.8; }
+  85% { transform: translateX(0.75rem); opacity: 1; }
+  87% { transform: translateX(-0.375rem); opacity: 0.9; }
+  89% { transform: translateX(0); opacity: 0; }
+}
+
+/* ── PROFILE GRID ───────────────────────────────── */
+.profile-grid {
+  display: grid;
+  /* 폰트가 커짐에 따라 사이드바 너비 살짝 조정 */
+  grid-template-columns: clamp(14rem, 22vw, 18rem) 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── PROFILE SIDEBAR ────────────────────────────── */
+.profile-sidebar {
+  position: sticky;
+  top: 5rem;
+}
+
+@media (max-width: 768px) {
+  .profile-sidebar {
+    position: static;
+  }
+}
+
+/* ── PHOTO BOX ──────────────────────────────────── */
+.photo-box {
+  border: 1px solid rgba(0, 255, 60, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(0, 255, 60, 0.02);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+  overflow: hidden;
+
+}
+
+
+/* ── INFO ROWS (상향 조정) ───────────────────────── */
+.info-row {
+  display: flex;
+  gap: clamp(0.5rem, 1.5vw, 0.875rem);
+  padding: clamp(0.6rem, 1.2vw, 0.8rem) 0;
+  border-bottom: 1px solid rgba(0, 255, 60, 0.1);
+}
+
+.info-label {
+  color: rgba(0, 255, 60, 0.48);
+  min-width: clamp(4rem, 7vw, 5rem);
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+}
+
+.info-value {
+  color: #ddd;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+}
+
+/* ── PROFILE CONTENT ────────────────────────────── */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3rem);
+}
+
+/* ── INTRO BOX (본문 가독성 강화) ────────────────── */
+.intro-box {
+  border: 1px solid rgba(0, 255, 60, 0.14);
+  background: rgba(0, 255, 60, 0.02);
+  padding: clamp(1.2rem, 3.5vw, 2rem);
+  position: relative;
+}
+
+.intro-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00FF3C, transparent);
+}
+
+.intro-label {
+  display: block;
+   font-family: "Nanum Gothic Coding", monospace;
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  color: #00FF3C;
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  opacity: 0.8;
+}
+
+.intro-text {
+   font-family: "Nanum Gothic Coding", monospace;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.8;
+  color: rgba(220, 220, 220, 0.9);
+  margin: 0;
+}
+
+.intro-text .highlight {
+  color: #00FF3C;
+   font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 500;
+}
+
+/* ── SKILLS (상향 조정) ──────────────────────────── */
+.skills-section .section-sublabel {
+  display: block;
+   font-family: "Nanum Gothic Coding", monospace;
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  color: #00FF3C;
+  margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  opacity: 0.8;
+}
+
+.skill-row {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  opacity: 0;
+  transform: translateX(-1.25rem);
+  transition: all 0.5s ease;
+}
+
+.skill-row.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.skill-category {
+   font-family: "Nanum Gothic Coding", monospace;
+  font-size: clamp(0.65rem, 1vw, 0.75rem);
+  color: rgba(0, 255, 60, 0.5);
+  min-width: clamp(4.5rem, 8vw, 6rem);
+  padding-top: 0.35rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.4rem, 1vw, 0.6rem);
+}
+
+.skill-tag {
+   font-family: "Nanum Gothic Coding", monospace;
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  border: 1px solid rgba(0, 255, 60, 0.25);
+  padding: clamp(0.3rem, 0.6vw, 0.4rem) clamp(0.6rem, 1.2vw, 0.8rem);
+  color: rgba(210, 210, 210, 0.9);
+  background: rgba(0, 255, 60, 0.03);
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  border-color: rgba(0, 255, 60, 0.6);
+  color: #00FF3C;
+  background: rgba(0, 255, 60, 0.08);
+}
+
+/* ── EDUCATION (상향 조정) ───────────────────────── */
+.education-section .section-sublabel {
+  display: block;
+   font-family: "Nanum Gothic Coding", monospace;
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  color: #00FF3C;
+  margin-bottom: clamp(0.75rem, 2vw, 1.2rem);
+  opacity: 0.8;
+}
+
+.education-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  padding: clamp(0.75rem, 1.5vw, 1rem) 0;
+  border-bottom: 1px solid rgba(0, 255, 60, 0.1);
+}
+
+.education-arrow {
+  font-size: clamp(0.5rem, 0.9vw, 0.6rem);
+  color: #00FF3C;
+}
+
+.education-year {
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  color: rgba(0, 255, 60, 0.6);
+  min-width: clamp(3.5rem, 6vw, 4.5rem);
+}
+
+.education-name {
+   font-family: "Nanum Gothic Coding", monospace;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  color: rgba(210, 210, 210, 0.9);
+}

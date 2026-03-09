@@ -1,0 +1,43 @@
+
+
+.intro-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #030303;
+  transform-origin: center center;
+  transform: scale(1.16);
+}
+
+.unicorn-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+#unicorn-5k2mf6g0i a img{
+  display: none;
+}
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.3;
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+

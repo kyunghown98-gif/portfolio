@@ -1,0 +1,18 @@
+/* 기본적으로 투명하게 숨겨두고, 마우스 클릭을 방해하지 않도록 설정 */
+.matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  /* 비가 내리기 시작할 때 부드럽게 나타나도록 트랜지션 추가 */
+  transition: opacity 2s ease-in-out; 
+}
+
+/* 활성화되었을 때의 투명도 (기존 인라인 스타일에 있던 0.3) */
+.matrix-canvas.active {
+  opacity: 0.3;
+}

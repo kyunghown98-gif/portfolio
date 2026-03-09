@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* ── TOC SECTION ────────────────────────────────── */
+.toc-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition: all 0.8s ease;
+}
+
+.toc-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── TOC ITEM ───────────────────────────────────── */
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem) 0; /* 패딩 소폭 증가 */
+  border-top: 1px solid rgba(0, 255, 60, 0.09);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-1.875rem);
+  transition: opacity 0.3s, transform 0.4s ease;
+}
+
+.toc-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toc-item.dimmed {
+  opacity: 0.3;
+}
+
+/* Bottom line animation on hover */
+.toc-item-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(to right, #00FF3C, #00ffff);
+  box-shadow: 0 0 0.5rem #00FF3C;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.toc-item:hover .toc-item-line {
+  width: 100%;
+}
+
+/* ── TOC INDEX (상향 조정) ───────────────────────── */
+.toc-index {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+  min-width: clamp(5rem, 10vw, 7rem); /* 너비 소폭 증가 */
+}
+
+.toc-index-number {
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  color: rgba(0, 255, 60, 0.45);
+}
+
+.toc-index-bar {
+  width: clamp(1.5rem, 3vw, 2.25rem);
+  height: 1px;
+  background: rgba(0, 255, 60, 0.18);
+  transition: all 0.3s ease;
+}
+
+.toc-item:hover .toc-index-bar {
+  width: clamp(2.5rem, 4vw, 3.25rem);
+  background: #00FF3C;
+  box-shadow: 0 0 0.375rem #00FF3C;
+}
+
+/* ── TOC CONTENT ────────────────────────────────── */
+.toc-content {
+  flex: 1;
+  /* 설명글과의 간격을 위해 아래 패딩 조정 가능 */
+  padding-right: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.toc-meta {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 1.2vw, 0.8rem);
+  margin-bottom: clamp(0.6rem, 1.2vw, 0.8rem);
+  flex-wrap: wrap;
+}
+
+.toc-type {
+ font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  color: rgba(0, 255, 60, 0.5);
+}
+
+.toc-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+  color: rgba(160, 160, 160, 0.9);
+  border: 1px solid rgba(0, 255, 60, 0.15);
+  padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.5rem, 1vw, 0.7rem);
+}
+
+/* ── TOC TITLE (기존 유지) ───────────────────────── */
+.toc-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+ 
+  font-size: clamp(1.2rem, 2.8vw, 2.2rem); 
+  color: #00FF3C;
+  letter-spacing: 0.05em; 
+  /* 제목 아래 간격 소폭 증가 */
+  margin-bottom: clamp(0.6rem, 1.2vw, 0.8rem); 
+  display: block;
+  text-shadow: none;
+  transition: all 0.3s ease;
+  position: relative;
+  line-height: 1.2;
+}
+
+.toc-item:hover .toc-title {
+  /* 호버 시 발광 효과도 커진 폰트에 맞춰 조금 더 선명하게 */
+  text-shadow: 0 0 1.5rem rgba(0, 255, 60, 0.6);
+  /* 호버 시 살짝 오른쪽으로 이동하는 디테일 (선택 사항) */
+  transform: translateX(5px);
+}
+
+/* Glitch effect for toc title */
+.toc-title::before,
+.toc-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.toc-title::before {
+  color: #00ffff;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  animation: tocGlitchCyan 3s infinite;
+}
+
+.toc-title::after {
+  color: #ff003c;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  animation: tocGlitchRed 3s infinite;
+}
+
+/* ── TOC DESCRIPTION (상향 조정) ────────────────── */
+.toc-desc {
+ font-family: "IBM Plex Mono", monospace;
+  /* 상향: 0.65rem -> 0.85rem */
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  color: rgba(180, 180, 180, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .toc-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+
+  .toc-index {
+    min-width: auto;
+  }
+
+  .toc-view {
+    opacity: 1;
+    transform: translateX(0);
+    align-self: flex-end;
+    margin-top: 0.5rem;
+  }
+}
