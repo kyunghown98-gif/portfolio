@@ -11,7 +11,7 @@
   padding: clamp(3rem, 8vw, 6.25rem) clamp(2rem, 5vw, 4rem);
   opacity: 0;
   transform: translateY(2.5rem);
-  transition: all 0.8s ease;
+  transition: all 0.7s ease;
 }
 
 .profile-section.visible {
