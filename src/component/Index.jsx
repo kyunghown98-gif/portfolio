@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../css/index.css"; // CSS 파일 이름은 실제 환경에 맞게 수정하세요
+import "../css/index.css"; 
 
-// ── TOC DATA ───────────────────────────────────────
+
 const tocData = [
   {
     idx: "01",
@@ -26,7 +26,7 @@ const tocData = [
   },
 ];
 
-// ── SECTION HEADER ─────────────────────────────────
+
 const SectionHeader = ({ label, title }) => (
   <div className="section-header">
     <span className="glitch-title" data-text={title}>
@@ -35,7 +35,7 @@ const SectionHeader = ({ label, title }) => (
   </div>
 );
 
-// ── INDEX SECTION ──────────────────────────────────
+
 const Index = () => {
   const [visible, setVisible] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);

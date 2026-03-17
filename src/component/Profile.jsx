@@ -1,26 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../css/profile.css";
 
-// ── GLITCH TITLE ───────────────────────────────────
+
 const GlitchTitle = ({ text }) => (
   <span className="glitch-title" data-text={text}>
     {text}
   </span>
 );
 
-// ── SECTION HEADER ─────────────────────────────────
+
 const SectionHeader = ({ title }) => (
   <div className="section-header">
     <GlitchTitle text={title} />
   </div>
 );
 
-// ── SKILL TAG ──────────────────────────────────────
+
 const SkillTag = ({ label }) => (
   <span className="skill-tag">{label}</span>
 );
 
-// ── SKILLS DATA (DESIGN 카테고리 추가됨) ──────────────
+
 const skills = [
   { cat: "MARKUP", items: ["HTML5", "CSS3"] },
   { cat: "SCRIPT", items: ["JavaScript ES6+", "React", "DOM API"] },
@@ -29,7 +29,7 @@ const skills = [
   { cat: "ETC", items: ["반응형 웹", "REST API", "웹 접근성"] },
 ];
 
-// ── INFO DATA ──────────────────────────────────────
+
 const infoData = [
   ["NAME", "박경훈"],
   ["DOB", "1998.09.03"],
@@ -37,7 +37,7 @@ const infoData = [
   ["MAIL", "kyunghown98@naver.com"],
 ];
 
-// ── EDUCATION DATA ─────────────────────────────────
+
 const educationData = [
   ["2022", "영남이공대 자동차학과 졸업"],
   ["2025", "웹 퍼블리싱 과정 수료"],
@@ -45,7 +45,7 @@ const educationData = [
   ["2026", "(산대특)AI&React 활용 스마트시티웨더 구축 리퍼블리셔 양성"],
 ];
 
-// ── PROFILE SECTION ────────────────────────────────
+
 const Profile = () => {
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef();
