@@ -16,6 +16,17 @@ const projectsData = [
   },
   {
     idx: "02",
+    title: "T-CAST E CHANNEL CLONE",
+    filename: "TCHANNEL_CLONE",
+    status: "COMPLETE",
+    date: "2025.12",
+    desc: "T-Cast E채널 공식 사이트 클론 코딩. Swiper.js 다중 슬라이더, 드롭다운 헤더 및 스태킹 컨텍스트 처리, ON AIR 스케줄 하이라이팅 로직, 반응형 햄버거 메뉴와 사이트맵 구현. 바닐라 JS 기반으로 DOM 조작과 이벤트 핸들링을 직접 구성한 프로젝트.",
+    tech: ["HTML5", "CSS3", "VANILLA JS", "SWIPER.JS"],
+    link: "https://kyunghown98-gif.github.io/echannel/",
+    image: "./img/echannel.png",
+  },
+  {
+    idx: "03",
     title: "WEATHER APP",
     filename: "WEATHER_SYS.app",
     status: "ACTIVE",
@@ -24,10 +35,10 @@ const projectsData = [
     tech: ["REACT", "REDUX TOOLKIT", "OPENWEATHER API", "CSS VARIABLES"],
     link: "https://kyunghown98-gif.github.io/weather/",
     image: "./img/weather.png",
-    git:"https://github.com/kyunghown98-gif/weather"
+    git: "https://github.com/kyunghown98-gif/weather"
   },
   {
-    idx: "03",
+    idx: "04",
     title: "MATRIX PORTFOLIO",
     filename: "MATRIX_FOLIO",
     status: "IN_PROGRESS",
@@ -37,7 +48,7 @@ const projectsData = [
     link: "#",
     image: "./img/portfolio.png",
   },
-];
+]
 
 
 const SectionHeader = ({ title }) => (
@@ -207,9 +218,11 @@ const Project = () => {
                   <a href={data.link} className="prj-launch-btn">
                     EXECUTE_PROGRAM()
                   </a>
-                  <a href={data.git} className="prj-launch-btn">
-                    git_hub()
-                  </a>
+                  {data.git && (
+                    <a href={data.git} className="prj-launch-btn">
+                      git_hub()
+                    </a>
+                  )}
                 </div>
               </div>
             )}
