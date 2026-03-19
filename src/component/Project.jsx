@@ -12,7 +12,7 @@ const projectsData = [
     desc: "복잡한 드롭다운 애니메이션(clip-path, backdrop-filter, cubic-bezier)과 Swiper.js 슬라이더 인터랙션을 구현한 호텔 사이트 클론. 프로모션 카테고리 필터링과 분할 카드 레이아웃, 반응형 대응까지 완성한 실전 클론 코딩 프로젝트.",
     tech: ["REACT", "SWIPER.JS", "CSS3", "RESPONSIVE"],
     link: "https://kyunghown98-gif.github.io/Lotte/",
-    image: "./img/lotte.png",
+    image: "./img/lotte2.png",
   },
   {
     idx: "02",
