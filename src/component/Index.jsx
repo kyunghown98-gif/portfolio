@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../css/index.css"; 
+import "../css/index.css";
 
 
 const tocData = [
@@ -19,6 +19,13 @@ const tocData = [
   },
   {
     idx: "03",
+    name: "E-chanel",
+    type: "Clone Coding",
+    tags: ["HTML", "CSS", "Javascript"],
+    desc: "e-chanel 사이트 클론",
+  },
+  {
+    idx: "04",
     name: "MATRIX PORTFOLIO",
     type: "Creative Portfolio",
     tags: ["React", "GSAP", "Canvas", "UnicornStudio"],
@@ -38,7 +45,6 @@ const SectionHeader = ({ label, title }) => (
 
 const Index = () => {
   const [visible, setVisible] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const sectionRef = useRef();
 
   useEffect(() => {
@@ -64,16 +70,9 @@ const Index = () => {
       {tocData.map((item, i) => (
         <div
           key={i}
-          className={`toc-item ${visible ? "visible" : ""} ${
-            hoveredIndex !== null && hoveredIndex !== i ? "dimmed" : ""
-          }`}
+          className={`toc-item ${visible ? "visible" : ""}`}
           style={{ transitionDelay: `${i * 0.12}s` }}
-          onMouseEnter={() => setHoveredIndex(i)}
-          onMouseLeave={() => setHoveredIndex(null)}
         >
-          {/* Bottom line */}
-          <div className="toc-item-line" />
-
           {/* Index */}
           <div className="toc-index">
             <span className="toc-index-number">{item.idx}</span>
@@ -95,12 +94,8 @@ const Index = () => {
             </span>
             <p className="toc-desc">{item.desc}</p>
           </div>
-
-
         </div>
       ))}
-
-  
     </section>
   );
 };

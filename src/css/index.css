@@ -27,7 +27,6 @@
   gap: 0;
   padding: clamp(1rem, 2vw, 1.5rem) 0;
   border-top: 1px solid rgba(0, 255, 60, 0.09);
-  cursor: pointer;
   position: relative;
   overflow: hidden;
   opacity: 0;
@@ -44,28 +43,12 @@
   opacity: 0.3;
 }
 
-/* Bottom line animation on hover */
-.toc-item-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(to right, #00FF3C, #00ffff);
-  box-shadow: 0 0 0.5rem #00FF3C;
-  width: 0;
-  transition: width 0.3s ease;
-}
-
-.toc-item:hover .toc-item-line {
-  width: 100%;
-}
-
-/* ── TOC INDEX (상향 조정) ───────────────────────── */
+/* ── TOC INDEX ──────────────────────────────────── */
 .toc-index {
   display: flex;
   align-items: center;
   gap: clamp(0.75rem, 1.5vw, 1rem);
-  min-width: clamp(5rem, 10vw, 7rem); /* 너비 소폭 증가 */
+  min-width: clamp(5rem, 10vw, 7rem);
 }
 
 .toc-index-number {
@@ -77,19 +60,11 @@
   width: clamp(1.5rem, 3vw, 2.25rem);
   height: 1px;
   background: rgba(0, 255, 60, 0.18);
-  transition: all 0.3s ease;
-}
-
-.toc-item:hover .toc-index-bar {
-  width: clamp(2.5rem, 4vw, 3.25rem);
-  background: #00FF3C;
-  box-shadow: 0 0 0.375rem #00FF3C;
 }
 
 /* ── TOC CONTENT ────────────────────────────────── */
 .toc-content {
   flex: 1;
-  /* 설명글과의 간격을 위해 아래 패딩 조정 가능 */
   padding-right: clamp(1rem, 2.5vw, 1.75rem);
 }
 
@@ -102,7 +77,7 @@
 }
 
 .toc-type {
- font-family: "IBM Plex Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: clamp(0.75rem, 1vw, 0.85rem);
   color: rgba(0, 255, 60, 0.5);
 }
@@ -115,28 +90,18 @@
   padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.5rem, 1vw, 0.7rem);
 }
 
-/* ── TOC TITLE (기존 유지) ───────────────────────── */
+/* ── TOC TITLE ──────────────────────────────────── */
 .toc-title {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
- 
-  font-size: clamp(1.2rem, 2.8vw, 2.2rem); 
+  font-size: clamp(1.2rem, 2.8vw, 2.2rem);
   color: #00FF3C;
-  letter-spacing: 0.05em; 
-  /* 제목 아래 간격 소폭 증가 */
-  margin-bottom: clamp(0.6rem, 1.2vw, 0.8rem); 
+  letter-spacing: 0.05em;
+  margin-bottom: clamp(0.6rem, 1.2vw, 0.8rem);
   display: block;
   text-shadow: none;
-  transition: all 0.3s ease;
   position: relative;
   line-height: 1.2;
-}
-
-.toc-item:hover .toc-title {
-  /* 호버 시 발광 효과도 커진 폰트에 맞춰 조금 더 선명하게 */
-  text-shadow: 0 0 1.5rem rgba(0, 255, 60, 0.6);
-  /* 호버 시 살짝 오른쪽으로 이동하는 디테일 (선택 사항) */
-  transform: translateX(5px);
 }
 
 /* Glitch effect for toc title */
@@ -163,10 +128,9 @@
   animation: tocGlitchRed 3s infinite;
 }
 
-/* ── TOC DESCRIPTION (상향 조정) ────────────────── */
+/* ── TOC DESCRIPTION ────────────────────────────── */
 .toc-desc {
- font-family: "IBM Plex Mono", monospace;
-  /* 상향: 0.65rem -> 0.85rem */
+  font-family: "IBM Plex Mono", monospace;
   font-size: clamp(0.85rem, 1.4vw, 1rem);
   color: rgba(180, 180, 180, 0.8);
   line-height: 1.6;
