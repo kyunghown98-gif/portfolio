@@ -19,7 +19,7 @@ const tocData = [
   },
   {
     idx: "03",
-    name: "E-chanel",
+    name: "E-CHANNEL",
     type: "Clone Coding",
     tags: ["HTML", "CSS", "Javascript"],
     desc: "e-chanel 사이트 클론",
