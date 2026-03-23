@@ -94,7 +94,7 @@
 .toc-title {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
-  font-size: clamp(1.2rem, 2.8vw, 2.2rem);
+  font-size: clamp(1rem, 2.8vw, 2.2rem);
   color: #00FF3C;
   letter-spacing: 0.05em;
   margin-bottom: clamp(0.6rem, 1.2vw, 0.8rem);
@@ -131,7 +131,7 @@
 /* ── TOC DESCRIPTION ────────────────────────────── */
 .toc-desc {
   font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-size: clamp(0.75rem, 1.4vw, 1rem);
   color: rgba(180, 180, 180, 0.8);
   line-height: 1.6;
   margin: 0;
@@ -143,10 +143,14 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 2rem 0;
+    padding: 0;
   }
 
   .toc-index {
     min-width: auto;
+  }
+  .toc-desc{
+    margin-bottom: 1rem;
   }
 
   .toc-view {

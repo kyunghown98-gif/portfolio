@@ -254,7 +254,7 @@
 /* ── DESCRIPTION (typed) ────────────────────────── */
 .prj-desc {
   font-family: "VT323", monospace;
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.3vw, 1.15rem);
   line-height: 1.7;
   color: #00ff46;
   margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
