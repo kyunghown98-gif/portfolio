@@ -22,11 +22,12 @@ const SkillTag = ({ label }) => (
 
 
 const skills = [
-  { cat: "MARKUP", items: ["HTML5", "CSS3"] },
+  { cat: "MARKUP", items: ["HTML5",] },
+  { cat: "STYLESHEET", items: ["CSS3","SCSS",] },
   { cat: "SCRIPT", items: ["JavaScript ES6+", "React", "DOM API"] },
-  { cat: "DESIGN", items: ["Photoshop", "Illustrator", "Figma"] }, // << 추가된 부분
+  { cat: "DESIGN", items: ["Photoshop", "Illustrator", "Figma"] }, 
   { cat: "TOOL", items: ["Git/GitHub", "VS Code"] },
-  { cat: "ETC", items: ["반응형 웹", "REST API", "웹 접근성"] },
+  { cat: "CORE SKILLS", items: ["반응형 웹", "REST API", "웹 접근성"] },
 ];
 
 
